@@ -1,0 +1,86 @@
+<simulation verbosity="high">
+<output prefix="ipi_test"> 
+    <properties stride="2" filename="out">  [ step, time{picosecond},  conserved{electronvolt}, 
+	    temperature{kelvin}, kinetic_md{electronvolt}, potential{electronvolt}, pressure_md{bar}, volume{angstrom3}, cell_abcABC, ensemble_temperature{kelvin}] </properties>
+            <trajectory filename="xc" stride="2" cell_units="angstrom" format="ase"> positions{angstrom} </trajectory>
+     	<checkpoint stride="1000"/> 
+   	</output>
+   	<total_steps>4</total_steps> 
+  	<prng><seed>12345</seed></prng>
+	<ffsocket mode='unix' name='driver' matching='any'>
+    		<latency>  1.00000000e-02</latency>
+    		<slots>4</slots>
+    		<port>12345</port>
+    		<timeout>60.000000e+00</timeout>
+   		<address>hea_ipi_test</address>
+  	</ffsocket> 
+ 		<system_template>			
+     <labels>   [ IDX, TEMP] </labels>
+     <instance> [  0, 300 ] </instance>
+      <instance> [  1, 330 ] </instance>
+       <instance> [  2, 363 ] </instance>
+        <instance> [  3, 400 ] </instance>
+    <template>		
+	           <system prefix="IDX">
+        	<initialize nbeads="1">
+                	<file mode="ase" units="angstrom" cell_units="angstrom"> all-hea-125.extxyz </file>
+                 	<velocities mode="thermal" units="kelvin"> TEMP  </velocities>
+              	</initialize>
+	     	<forces>
+      			<force forcefield='driver'/>
+		</forces>
+        <motion mode="multi">
+		<motion mode="dynamics">
+            <dynamics mode="npt">
+                <barostat mode="isotropic">
+			<tau units="femtosecond"> 200 </tau>
+			  <thermostat mode='gle'>
+    <A shape='(7,7)'>
+      [   8.191023526179e-5,    8.328506066524e-4,    1.657771834013e-4,    9.736989925341e-5,    2.841803794895e-5,   -3.176846864198e-6,   -2.967010478210e-5, 
+  -8.389856546341e-5,    2.405526974742e-3,   -1.507872374848e-3,    2.589784240185e-4,    1.516783633362e-4,   -5.958833418565e-5,    4.198422349789e-5, 
+   7.798710586406e-5,    1.507872374848e-3,    8.569039501219e-4,    6.001000899602e-4,    1.062029383877e-4,    1.093939147968e-4,   -2.661575532976e-4, 
+  -9.676783161546e-5,   -2.589784240185e-4,   -6.001000899602e-4,    2.680459336535e-6,   -5.214694469742e-6,    4.231304910751e-5,   -2.104894919743e-6, 
+  -2.841997149166e-5,   -1.516783633362e-4,   -1.062029383877e-4,    5.214694469742e-6,   1.433903506353e-10,   -4.241574212449e-6,    7.910178912362e-6, 
+   3.333208286893e-6,    5.958833418565e-5,   -1.093939147968e-4,   -4.231304910751e-5,    4.241574212449e-6,    2.385554468441e-9,   -3.139255482869e-6, 
+   2.967533789056e-5,   -4.198422349789e-5,    2.661575532976e-4,    2.104894919743e-6,   -7.910178912362e-6,    3.139255482869e-6,   2.432567259684e-12
+     ]
+    </A>
+  </thermostat>	
+                    </barostat>
+		    <timestep units="femtosecond"> 2 </timestep>
+		    <thermostat mode='multi'>   
+                        	<thermostat mode='gle'>
+                        		<A shape='(5,5)'>
+                        					[	
+				4.498098855452e-3,    6.594810718477e-6,    2.788030342989e-4,   -8.808265165053e-4,    5.605371493938e-3,
+                                -6.726802271646e-6,    2.079069559861e-9,    1.746169548818e-5,   -4.800164465960e-6,    1.025830873432e-5,
+                                -3.586191452340e-4,   -1.746169548818e-5,    3.287481976399e-5,    1.245698716799e-4,   -2.417657162526e-4,
+                                -2.508912543565e-4,    4.800164465960e-6,   -1.245698716799e-4,    6.449207766266e-4,    2.783583234046e-4,
+                                5.273493443008e-3,   -1.025830873432e-5,    2.417657162526e-4,   -2.783583234046e-4,    7.488477456790e-3
+                        					]
+                       		</A>
+			</thermostat>
+			<thermostat mode='svr'> <tau units='femtosecond'> 10 </tau></thermostat>
+		    </thermostat>
+                 	</dynamics>
+                </motion>
+                <motion mode="atomswap">
+                    <atomswap>
+                        <nxc> 1 </nxc>
+                        <names>  [ Sc, Ti, V , Cr, Mn, Fe, Co, Ni, Cu, Zn, Y , Zr, Nb, Mo, Ru, Rh, Pd, Ag, Lu, Hf, Ta, W , Ir, Pt, Au ]  </names>
+                    </atomswap>        
+                </motion>
+        </motion>
+	   	<ensemble>
+            <temperature units="kelvin"> TEMP </temperature>
+            <pressure units="bar"> 1 </pressure>
+           	</ensemble>
+	</system>
+</template>
+</system_template>
+    <smotion mode="remd">
+      <remd>
+         <stride> 2 </stride>
+      </remd>
+   </smotion>
+</simulation>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; The Joy of Cooking (Up Code)</title>
+    <title>Examples from Publications &#8212; The Joy of Cooking (Up Code)</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data Analysis" href="analysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +112,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="descriptors.html">
    Building ML Descriptors
@@ -127,8 +128,8 @@ const thebe_selector_output = ".output, .cell_output"
    Data Analysis
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="publications.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Examples from Publications
   </a>
  </li>
@@ -222,7 +223,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/bananenpampe/COSMO_cookbook/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/bananenpampe/COSMO_cookbook/issues/new?title=Issue%20on%20page%20%2Fpublications.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -250,7 +251,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/content.md"
+        <a href="_sources/publications.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -287,50 +288,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>Examples from Publications</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -338,11 +312,134 @@ title="Print to PDF"
                 
               <div>
                 
-  <!-- Content in Jupyter Book
-=======================
+  <section class="tex2jax_ignore mathjax_ignore" id="examples-from-publications">
+<h1>Examples from Publications<a class="headerlink" href="#examples-from-publications" title="Permalink to this headline">#</a></h1>
+<p>Here we include procedures from previously-published studies, including…</p>
+<!--
+Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
+in regular markdown files (`.md`), you'll write in the same flavor of markdown
+called **MyST Markdown**.
 
-There are many ways to write content in Jupyter Book. This short section
-covers a few tips for how to do so. -->
+## What is MyST?
+
+MyST stands for "Markedly Structured Text". It
+is a slight variation on a flavor of markdown called "CommonMark" markdown,
+with small syntax extensions to allow you to write **roles** and **directives**
+in the Sphinx ecosystem.
+
+## What are roles and directives?
+
+Roles and directives are two of the most powerful tools in Jupyter Book. They
+are kind of like functions, but written in a markup language. They both
+serve a similar purpose, but **roles are written in one line**, whereas
+**directives span many lines**. They both accept different kinds of inputs,
+and what they do with those inputs depends on the specific role or directive
+that is being called.
+
+### Using a directive
+
+At its simplest, you can insert a directive into your book's content like so:
+
+````
+```{mydirectivename}
+My directive content
+```
+````
+
+This will only work if a directive with name `mydirectivename` already exists
+(which it doesn't). There are many pre-defined directives associated with
+Jupyter Book. For example, to insert a note box into your content, you can
+use the following directive:
+
+````
+```{note}
+Here is a note
+```
+````
+
+This results in:
+
+```{note}
+Here is a note
+```
+
+In your built book.
+
+For more information on writing directives, see the
+[MyST documentation](https://myst-parser.readthedocs.io/).
+
+
+### Using a role
+
+Roles are very similar to directives, but they are less-complex and written
+entirely on one line. You can insert a role into your book's content with
+this pattern:
+
+```
+Some content {rolename}`and here is my role's content!`
+```
+
+Again, roles will only work if `rolename` is a valid role's name. For example,
+the `doc` role can be used to refer to another page in your book. You can
+refer directly to another page by its relative path. For example, the
+role syntax `` {doc}`intro` `` will result in: {doc}`intro`.
+
+For more information on writing roles, see the
+[MyST documentation](https://myst-parser.readthedocs.io/).
+
+
+### Adding a citation
+
+You can also cite references that are stored in a `bibtex` file. For example,
+the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
+this: {cite}`holdgraf_evidence_2014`.
+
+Moreover, you can insert a bibliography into your page with this syntax:
+The `{bibliography}` directive must be used for all the `{cite}` roles to
+render properly.
+For example, if the references for your book are stored in `references.bib`,
+then the bibliography is inserted with:
+
+````
+```{bibliography}
+```
+````
+
+Resulting in a rendered bibliography that looks like:
+
+```{bibliography}
+```
+
+
+### Executing code in your markdown files
+
+If you'd like to include computational content inside these markdown files,
+you can use MyST Markdown to define cells that will be executed when your
+book is built. Jupyter Book uses *jupytext* to do this.
+
+First, add Jupytext metadata to the file. For example, to add Jupytext metadata
+to this markdown page, run this command:
+
+```
+jupyter-book myst init markdown.md
+```
+
+Once a markdown file has Jupytext metadata in it, you can add the following
+directive to run the code at build time:
+
+````
+```{code-cell}
+print("Here is some code to execute")
+```
+````
+
+When your book is built, the contents of any `{code-cell}` blocks will be
+executed with your default Jupyter kernel, and their outputs will be displayed
+in-line with the rest of your content.
+
+For more information about executing computational content with Jupyter Book,
+see [The MyST-NB documentation](https://myst-nb.readthedocs.io/). -->
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -371,6 +468,13 @@ covers a few tips for how to do so. -->
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="analysis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Analysis</p>
+        </div>
+    </a>
 </div>
             </footer>
         </div>

@@ -5,6 +5,17 @@ These examples cover data analysis procedures, including those published in [sci
 ## Examples
 `````{grid}
 ````{grid-item}
+[**PCovR-Inspired Feature Selection¶ [EXTERNAL]**](https://scikit-cosmo.readthedocs.io/en/latest/read-only-examples/FeatureSelection.html)
+```{figure} examples/skcosmo-FeatureSelection/logo.png
+---
+class: with-border
+align: left
+target: https://scikit-cosmo.readthedocs.io/en/latest/read-only-examples/FeatureSelection.html
+height: 200px
+---
+```
+````
+````{grid-item}
 [**Constructing a PCovR Map [EXTERNAL]**](https://scikit-cosmo.readthedocs.io/en/latest/read-only-examples/PCovR.html)
 ```{figure} examples/skcosmo-pcovr/logo.png
 ---

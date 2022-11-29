@@ -28,4 +28,4 @@ jobs:
         run: |
           cd COSMO_cookbook/examples
           cd test_notebook
-          jupyter nbconvert --execute --to pdf Test_linear_Fit.ipynb
+          jupyter nbconvert --execute Test_linear_Fit.ipynb

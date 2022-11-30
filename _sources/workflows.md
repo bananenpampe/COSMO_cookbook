@@ -1,4 +1,4 @@
-# Examples from Publications
-Here we include procedures from previously-published studies, including...
+# Complete Workflows
+Here we include procedures, including from previously-published studies...
 
 ## Examples

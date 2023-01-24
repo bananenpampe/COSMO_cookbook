@@ -5,12 +5,12 @@ These examples cover data analysis procedures, including those published in [sci
 ## Examples
 `````{grid}
 ````{grid-item}
-[**PCovR-Inspired Feature Selection [EXTERNAL]**](https://scikit-cosmo.readthedocs.io/en/latest/read-only-examples/FeatureSelection.html)
-```{figure} examples/skcosmo-FeatureSelection/logo.png
+[**Making a Gif of PCovR Maps**](examples/skcosmo-PCovRGif/MakeGif.ipynb)
+```{figure} examples/skcosmo-PCovRGif/logo.png
 ---
 class: with-border
 align: left
-target: https://scikit-cosmo.readthedocs.io/en/latest/read-only-examples/FeatureSelection.html
+target: examples/skcosmo-PCovRGif/MakeGif.html
 height: 200px
 ---
 ```
@@ -22,6 +22,17 @@ height: 200px
 class: with-border
 align: left
 target: https://scikit-cosmo.readthedocs.io/en/latest/read-only-examples/PCovR.html
+height: 200px
+---
+```
+````
+````{grid-item}
+[**PCovR-Inspired Feature Selection [EXTERNAL]**](https://scikit-cosmo.readthedocs.io/en/latest/read-only-examples/FeatureSelection.html)
+```{figure} examples/skcosmo-FeatureSelection/logo.png
+---
+class: with-border
+align: left
+target: https://scikit-cosmo.readthedocs.io/en/latest/read-only-examples/FeatureSelection.html
 height: 200px
 ---
 ```
